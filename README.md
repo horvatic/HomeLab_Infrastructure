@@ -82,6 +82,7 @@ A few basic commands for setting up a pi 4 with ubuntu 20.04
   wget https://golang.org/dl/go1.16.3.linux-arm64.tar.gz
   ```
   NOTE: The version of go will change. Most up to date ARMv8 version is listed here: https://golang.org/dl/
+  
   Kind: Archive. OS: Linux, Arch:	ARMv8
   
   ```
@@ -105,7 +106,9 @@ A few basic commands for setting up a pi 4 with ubuntu 20.04
   ```
 
 ## Setting Up Micro K8's (For Kubernetes)
+
 https://microk8s.io/docs
+
 https://microk8s.io/docs/clustering
 
 NOTE the following must be added:
