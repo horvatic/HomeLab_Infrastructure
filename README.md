@@ -54,6 +54,7 @@ A few basic commands for setting up a pi 4 with ubuntu 20.04
   sudo reboot
   ```
   ### hostname
+  NOTE: when setting up for K8's hostname must be lowercase
   ```
   sudo vim /etc/hostname
   ```
