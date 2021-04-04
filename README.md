@@ -117,3 +117,30 @@ at the end of the file add
 ```
 cgroup_enable=memory cgroup_memory=1
 ```
+### Install Docker:
+
+References: https://wiki.learnlinux.tv/index.php/Setting_up_a_Raspberry_Pi_Kubernetes_Cluster_with_Ubuntu_20.04
+```
+curl -sSL get.docker.com | sh
+```
+Set Docker daemon options:
+```
+sudo vim /etc/docker/daemon.json
+```
+```
+ {
+   "exec-opts": ["native.cgroupdriver=systemd"],
+   "log-driver": "json-file",
+   "log-opts": {
+     "max-size": "100m"
+   },
+   "storage-driver": "overlay2"
+ }
+ ```
+ Enable routing. Uncomment net.ipv4.ip_forward=1 
+ ```
+ sudo vim /etc/sysctl.conf
+ ```
+ ```
+ net.ipv4.ip_forward=1
+ ```
