@@ -77,7 +77,7 @@ A few basic commands for setting up a pi 4 with ubuntu 20.04
   sudo reboot
   ```
   
-  ## Setup Golang
+  ## Setup Golang ( For local dev )
   ```
   wget https://golang.org/dl/go1.16.3.linux-arm64.tar.gz
   ```
@@ -103,3 +103,17 @@ A few basic commands for setting up a pi 4 with ubuntu 20.04
   ```
   go version
   ```
+
+## Setting Up Micro K8's (For Kubernetes)
+https://microk8s.io/docs
+https://microk8s.io/docs/clustering
+
+NOTE the following must be added:
+
+```
+sudo vim /boot/firmware/cmdline.txt
+```
+at the end of the file add
+```
+cgroup_enable=memory cgroup_memory=1
+```
