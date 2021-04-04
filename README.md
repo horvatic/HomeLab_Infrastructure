@@ -76,3 +76,30 @@ A few basic commands for setting up a pi 4 with ubuntu 20.04
   ```
   sudo reboot
   ```
+  
+  ## Setup Golang
+  ```
+  wget https://golang.org/dl/go1.16.3.linux-arm64.tar.gz
+  ```
+  NOTE: The version of go will change. Most up to date ARMv8 version is listed here: https://golang.org/dl/
+  Kind: Archive. OS: Linux, Arch:	ARMv8
+  
+  ```
+  sudo tar -C /usr/local -xzf go1.16.3.linux-arm64.tar.gz
+  ```
+  ```
+  rm go1.16.3.linux-arm64.tar.gz
+  ```
+  ```
+  vim $HOME/.profile
+  ```
+  Add the following:
+  ```
+  export PATH=$PATH:/usr/local/go/bin
+  ```
+  ```
+  exit
+  ```
+  ```
+  go version
+  ```
