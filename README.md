@@ -121,7 +121,9 @@ at the end of the file add
 ```
 cgroup_enable=memory cgroup_memory=1
 ```
-### Install Docker:
+### Install Docker Or Containerd.io:
+
+Docker:
 
 References: https://wiki.learnlinux.tv/index.php/Setting_up_a_Raspberry_Pi_Kubernetes_Cluster_with_Ubuntu_20.04
 ```
@@ -141,7 +143,15 @@ sudo vim /etc/docker/daemon.json
    "storage-driver": "overlay2"
  }
  ```
- Enable routing. Uncomment net.ipv4.ip_forward=1 
+ 
+ containerd:
+ ```
+ sudo apt install -y containerd.io
+ ```
+ 
+ NOTE: You may need to add the apt package reference to be able to install this package
+ 
+ ### Enable routing. Uncomment net.ipv4.ip_forward=1 
  ```
  sudo vim /etc/sysctl.conf
  ```
