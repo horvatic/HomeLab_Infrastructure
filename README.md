@@ -33,15 +33,15 @@ A few basic commands for setting up a pi 4 with ubuntu 20.04
   ```
   ```
   network:
-  version: 2
-  renderer: networkd
-  ethernets:
-    eth0:
-      dhcp4: no
-      addresses: [10.0.0.20/24]
-      gateway4: 10.0.0.1
-      nameservers:
-        addresses: [75.75.75.75]
+    version: 2
+    renderer: networkd
+    ethernets:
+      eth0:
+        dhcp4: no
+        addresses: [10.0.0.20/24]
+        gateway4: 10.0.0.1
+        nameservers:
+          addresses: [75.75.75.75]
   ```
   NOTE: Ip address may vary
   
