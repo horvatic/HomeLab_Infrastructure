@@ -158,3 +158,9 @@ sudo vim /etc/docker/daemon.json
  ```
  net.ipv4.ip_forward=1
  ```
+ 
+ ### Other
+ Setting up snap to refresh on friday afternoon, as 4 times a day may be too hard on a pi
+ ```
+ sudo snap set system refresh.timer=fri,18:15
+ ```
