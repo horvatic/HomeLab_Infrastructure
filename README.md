@@ -164,3 +164,16 @@ sudo vim /etc/docker/daemon.json
  ```
  sudo snap set system refresh.timer=fri,18:15
  ```
+ 
+ ### Ingress
+ Add an external ip to access the cluster outside the local network
+ ```
+ nano /var/snap/microk8s/current/certs/csr.conf.template
+ ```
+ Add the follow Ips
+ ```
+IP.1 = 127.0.0.1
+#MOREIPS
+IP.98 = x.x.x.x # Master Ip local address
+IP.99 = x.x.x.x # Ip address of WAN
+```
