@@ -121,6 +121,18 @@ at the end of the file add
 ```
 cgroup_enable=memory cgroup_memory=1
 ```
+### Clustering Host Changes
+All nodes must have the local IP of all the other nodes in the cluster. Go to each node and edit the `/etc/hosts` file
+
+Example:
+```
+sudo nano /etc/hosts
+
+10.0.0.101 nodehostnameone
+10.0.0.102 nodehostnametwo
+10.0.0.103 nodehostnamethree
+```
+
 ### Install Docker Or Containerd.io:
 
 Docker:
