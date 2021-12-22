@@ -133,7 +133,7 @@ sudo nano /etc/hosts
 10.0.0.103 nodehostnamethree
 ```
 
-### Install Docker Or Containerd.io:
+### Install Docker Or Containerd.io ( No longer needed on K8's Setup as its handled by MicroK8's ):
 
 Docker:
 
