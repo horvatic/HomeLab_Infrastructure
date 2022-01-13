@@ -1,11 +1,11 @@
-# Base Ubuntu Pi 4 Setup
+# Home Lab Infrastructure Commands and Setup
 
-# Overview
-A few basic commands for setting up a pi 4 with ubuntu 20.04
+## Setup
 
-# Setup
+### OS
+Each Node is installed with Ubuntu or Debian
 
-## Add user
+### Add user
  
   Run commands:
 
@@ -17,9 +17,9 @@ A few basic commands for setting up a pi 4 with ubuntu 20.04
   sudo usermod -aG sudo username
   ```
 
-## Setup a network
+### Setup a network
 
-### 99-disable-network-config.cfg
+#### 99-disable-network-config.cfg
   ```
   sudo vim /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
   ```
@@ -27,7 +27,7 @@ A few basic commands for setting up a pi 4 with ubuntu 20.04
   network: {config: disabled}
   ```
   
- ### 01-netcfg.yaml
+ #### 01-netcfg.yaml
   ```
   sudo vim /etc/netplan/01-netcfg.yaml
   ```
@@ -45,15 +45,12 @@ A few basic commands for setting up a pi 4 with ubuntu 20.04
   ```
   NOTE: Ip address may vary
   
-  ### 50-cloud-init.yaml
+  #### 50-cloud-init.yaml
   ```
   sudo rm /etc/netplan/50-cloud-init.yaml
   ```
-  ### Reboot
-  ```
-  sudo reboot
-  ```
-  ### hostname
+
+  #### hostname
   NOTE: when setting up for K8's hostname must be lowercase
   ```
   sudo vim /etc/hostname
@@ -64,13 +61,11 @@ A few basic commands for setting up a pi 4 with ubuntu 20.04
   ```
   sudo reboot
   ```
-  ## Update
+  ### Update
   ```
   sudo apt-get update
   ```
-  ```
-  sudo reboot
-  ```
+
   ```
   sudo apt-get upgrade
   ```
@@ -78,7 +73,7 @@ A few basic commands for setting up a pi 4 with ubuntu 20.04
   sudo reboot
   ```
   
-  ## Setup Golang ( For local dev )
+  ### Setup Golang ( For local dev )
   ```
   wget https://golang.org/dl/go1.16.3.linux-arm64.tar.gz
   ```
@@ -106,22 +101,22 @@ A few basic commands for setting up a pi 4 with ubuntu 20.04
   go version
   ```
 
-## Setting Up Micro K8's (For Kubernetes)
+### Setting Up Micro K8's (For Kubernetes)
 
 https://microk8s.io/docs
 
 https://microk8s.io/docs/clustering
 
-NOTE the following must be added:
+NOTE the following must be added: ( For raspberry pi's only )
 
 ```
 sudo vim /boot/firmware/cmdline.txt
 ```
-at the end of the file add
+at the end of the file add 
 ```
 cgroup_enable=memory cgroup_memory=1
 ```
-### Clustering Host Changes
+#### Clustering Host Changes
 All nodes must have the local IP of all the other nodes in the cluster. Go to each node and edit the `/etc/hosts` file
 
 Example:
@@ -171,13 +166,14 @@ sudo vim /etc/docker/daemon.json
  net.ipv4.ip_forward=1
  ```
  
- ### Other
+ #### Snap update
  Setting up snap to refresh on friday afternoon, as 4 times a day may be too hard on a pi
+ When having more than one node offset the update of each by 15 minutes
  ```
  sudo snap set system refresh.timer=fri,18:15
  ```
  
- ### Ingress
+ #### Ingress
  Add an external ip to access the cluster outside the local network
  ```
  nano /var/snap/microk8s/current/certs/csr.conf.template
